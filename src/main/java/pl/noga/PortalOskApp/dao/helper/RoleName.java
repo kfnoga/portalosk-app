@@ -1,5 +1,5 @@
 package pl.noga.PortalOskApp.dao.helper;
 
 public enum RoleName {
-    Kursant,Instruktor,Wyk?adowca,Administrator
+    Kursant,Instruktor,Wykladowca,Administrator
 }

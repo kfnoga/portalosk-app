@@ -2,12 +2,11 @@ package pl.noga.PortalOskApp.dao.entity;
 
 import pl.noga.PortalOskApp.dao.helper.RoleName;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "roles")
 public class Role {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +15,14 @@ public class Role {
 
     private RoleName name;
 
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
+
     public Role() {
+    }
+    public Role(Long id, RoleName name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Long getId() {
@@ -35,8 +41,5 @@ public class Role {
         this.name = name;
     }
 
-    public Role(Long id, RoleName name) {
-        this.id = id;
-        this.name = name;
-    }
+
 }
